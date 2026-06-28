@@ -1,9 +1,10 @@
 # ----------------------------------------------------------------------------
 # Decap CMS – Konfiguration für Swiss Sync
 #
-# PRODUKTION (Netlify): nutzt das Git-Gateway (committet Änderungen ins Repo,
-#   Netlify rebuildet automatisch). Voraussetzung: Identity + Git Gateway in
-#   Netlify aktiviert. Alternative (GitHub-Backend) siehe docs/CMS.md.
+# PRODUKTION: GitHub-Backend. Login via GitHub-OAuth, vermittelt über Netlify
+#   (Site settings → Access & security → OAuth → GitHub-Provider installieren).
+#   Änderungen werden ins Repo committet, Netlify rebuildet automatisch.
+#   Setup-Details: docs/CMS.md.
 #
 # LOKAL: `local_backend: true` erlaubt sofortiges Editieren ohne Login.
 #   Dazu in einem zweiten Terminal `npx decap-server` starten und `npm run dev`
@@ -11,7 +12,8 @@
 # ----------------------------------------------------------------------------
 
 backend:
-  name: git-gateway
+  name: github
+  repo: DonElliot121/swiss-sync
   branch: main
 
 # Lokales Editieren während der Entwicklung (npx decap-server).
