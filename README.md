@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Swiss Sync
 
-## Getting Started
+B2B-Digitalstudio – Website für **Websites · Hosting · KI-Services**.
 
-First, run the development server:
+Stil: *Swiss Tech / Präzision* (Schwarz/Weiss + Swiss-Rot, Grid-Typografie). **Dark Mode ist Standard**, umschaltbar.
+
+## Tech-Stack
+
+- **Next.js 16** (App Router, Turbopack) · **React 19** · **TypeScript**
+- **Tailwind CSS v4** (Design-Tokens in `src/app/globals.css`)
+- **motion** (Framer Motion) für Animationen
+- **next-themes** für Dark/Light Mode
+
+## Befehle
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # Entwicklung → http://localhost:3000
+npm run build    # Production-Build
+npm run start    # Production-Server (nach build)
+npm run lint     # Linting
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Struktur
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├─ app/
+│  ├─ layout.tsx              # Root: Fonts, ThemeProvider, Nav, Footer, SEO
+│  ├─ page.tsx                # Home
+│  ├─ leistungen/             # Übersicht + [slug] Detailseiten
+│  ├─ referenzen/ ueber-uns/ preise/ insights/ kontakt/
+│  ├─ insights/[slug]/        # Blog-Detail
+│  ├─ impressum/ datenschutz/ # Rechtliches
+│  ├─ not-found.tsx           # 404
+│  └─ api/contact/route.ts    # Kontaktformular-Endpunkt (Platzhalter)
+├─ components/
+│  ├─ site/                   # Nav, Footer, Logo, Karten, Formular …
+│  ├─ sections/               # Hero, Testimonials
+│  ├─ ui/                     # Container, Button, Reveal, SectionHeading, Marquee
+│  ├─ theme-provider.tsx · theme-toggle.tsx
+├─ content/                   # ⇦ ALLE Texte & Daten (CMS-Anbindung Phase 2)
+│  ├─ site.ts services.ts work.ts pricing.ts team.ts posts.ts
+│  └─ types.ts
+└─ lib/                       # cn(), formatDate()
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Inhalte pflegen (heute)
 
-## Learn More
+Alle Texte, Kennzahlen, Projekte, Preise und Blog-Artikel liegen in `src/content/*.ts`.
+Anpassungen dort wirken sofort auf der ganzen Website. Platzhalter sind u. a.:
+Firmenadresse/Telefon (`site.ts`), UID (`impressum`), Social-Links.
 
-To learn more about Next.js, take a look at the following resources:
+## Roadmap
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Phase 1 — Website** ✅ Design, 7 Seiten, Dark Mode, Animationen, SEO-Grundlagen.
+- **Phase 2 — CMS** ⏳ Eigenes `/admin`-Panel zum Editieren von Texten & Bildern
+  (file-/git-basiert, ohne Datenbank) – greift direkt auf den `content/`-Layer zu.
+- **Phase 3 — Go-Live** ⏳ Kontaktformular an E-Mail/CRM anbinden, Domain & Hosting,
+  Bilder/OG-Images, Analytics.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Hinweise
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 16 hat Breaking Changes – Doku liegt unter `node_modules/next/dist/docs/`.
+- `params`/`searchParams` sind asynchron (siehe Detailseiten).

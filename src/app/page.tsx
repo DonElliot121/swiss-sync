@@ -1,65 +1,163 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Container } from "@/components/ui/container";
+import { Marquee } from "@/components/ui/marquee";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
+import { Button } from "@/components/ui/button";
+import { Hero } from "@/components/sections/hero";
+import { Testimonials } from "@/components/sections/testimonials";
+import { ServicesList } from "@/components/site/services-list";
+import { ProjectCard } from "@/components/site/project-card";
+import { processSteps } from "@/content/services";
+import { projects } from "@/content/work";
+
+const techStack = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  "Tailwind CSS",
+  "Schweizer Hosting",
+  "KI & LLMs",
+  "Headless CMS",
+  "Webshops",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Hero />
+
+      {/* Trust marquee */}
+      <section className="border-y border-border py-8">
+        <Container className="mb-6">
+          <p className="label text-center">
+            Technologie, auf die wir bauen
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+        </Container>
+        <Marquee items={techStack} />
+      </section>
+
+      {/* Services */}
+      <section className="py-24 md:py-32">
+        <Container>
+          <div className="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <SectionHeading
+              label="01 — Leistungen"
+              title={
+                <>
+                  Drei Disziplinen,
+                  <br />
+                  ein nahtloses Ganzes.
+                </>
+              }
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <Reveal delay={0.1}>
+              <Button href="/leistungen" variant="outline" arrow>
+                Alle Leistungen
+              </Button>
+            </Reveal>
+          </div>
+          <ServicesList />
+        </Container>
+      </section>
+
+      {/* Process */}
+      <section className="border-t border-border bg-surface py-24 md:py-32">
+        <Container>
+          <SectionHeading
+            label="02 — Vorgehen"
+            title="Von der Idee zum Ergebnis – in vier Schritten."
+            intro="Ein klarer, transparenter Prozess. Sie wissen jederzeit, woran wir arbeiten und was als Nächstes kommt."
+          />
+
+          <RevealGroup className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((step) => (
+              <RevealItem
+                key={step.index}
+                className="group relative bg-background p-8 transition-colors hover:bg-surface-2 md:p-10"
+              >
+                <div className="label text-accent">{step.index}</div>
+                <h3 className="mt-6 text-xl font-semibold tracking-tight">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {step.description}
+                </p>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </Container>
+      </section>
+
+      {/* Featured work */}
+      <section className="py-24 md:py-32">
+        <Container>
+          <div className="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <SectionHeading
+              label="03 — Referenzen"
+              title="Arbeit, die für sich spricht."
+            />
+            <Reveal delay={0.1}>
+              <Button href="/referenzen" variant="outline" arrow>
+                Alle Projekte
+              </Button>
+            </Reveal>
+          </div>
+
+          <RevealGroup className="grid gap-6 md:grid-cols-2">
+            {projects.slice(0, 4).map((p) => (
+              <RevealItem key={p.slug}>
+                <ProjectCard project={p} />
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </Container>
+      </section>
+
+      {/* Testimonials */}
+      <section className="border-t border-border bg-surface py-24 md:py-32">
+        <Container className="max-w-4xl">
+          <Reveal>
+            <p className="label mb-10 flex items-center gap-3">
+              <span className="inline-block h-px w-8 bg-accent" />
+              04 — Stimmen
+            </p>
+          </Reveal>
+          <Testimonials />
+        </Container>
+      </section>
+
+      {/* Mid CTA */}
+      <section className="py-24 md:py-32">
+        <Container>
+          <Reveal>
+            <div className="relative overflow-hidden rounded-[2rem] border border-border bg-foreground px-8 py-16 text-background md:px-16 md:py-24">
+              <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-accent/30 blur-[100px]" />
+              <div className="relative max-w-2xl">
+                <p className="label !text-background/60">Lassen Sie uns sprechen</p>
+                <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight md:text-5xl">
+                  Ihr nächstes digitales Projekt beginnt mit einem Gespräch.
+                </h2>
+                <p className="mt-5 max-w-lg text-background/70">
+                  Kostenlos, unverbindlich und auf Augenhöhe. Erzählen Sie uns
+                  von Ihrem Vorhaben.
+                </p>
+                <div className="mt-10">
+                  <Link
+                    href="/kontakt"
+                    className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-4 text-base font-medium text-accent-fg transition-transform hover:scale-[1.03]"
+                  >
+                    Projekt starten
+                    <span className="transition-transform group-hover:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+    </>
   );
 }

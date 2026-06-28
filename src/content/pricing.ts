@@ -1,0 +1,120 @@
+import type { PricingTier } from "./types";
+
+export const pricingTiers: PricingTier[] = [
+  {
+    name: "Starter",
+    price: "ab CHF 3'900",
+    cadence: "einmalig",
+    description:
+      "Für Unternehmen, die einen professionellen, schnellen Webauftritt brauchen.",
+    features: [
+      "Bis zu 5 Seiten",
+      "Individuelles Design",
+      "Responsiv & SEO-Grundlagen",
+      "CMS zur Selbstpflege",
+      "3 Monate Support",
+    ],
+    cta: "Projekt starten",
+  },
+  {
+    name: "Business",
+    price: "ab CHF 9'900",
+    cadence: "einmalig",
+    description:
+      "Die umfassende Lösung für wachsende Unternehmen mit höheren Ansprüchen.",
+    highlight: true,
+    features: [
+      "Bis zu 15 Seiten",
+      "Massgeschneidertes Design-System",
+      "Erweiterte SEO & Performance",
+      "Headless CMS & Integrationen",
+      "KI-Feature inklusive",
+      "12 Monate Support",
+    ],
+    cta: "Beratung anfragen",
+  },
+  {
+    name: "Enterprise",
+    price: "Individuell",
+    cadence: "auf Anfrage",
+    description:
+      "Komplexe Plattformen, KI-Systeme und massgeschneiderte Lösungen.",
+    features: [
+      "Unbegrenzte Seiten & Module",
+      "Dedizierte KI-Entwicklung",
+      "Eigene Infrastruktur (CH)",
+      "SLA & Priority-Support",
+      "Persönlicher Account Manager",
+    ],
+    cta: "Gespräch vereinbaren",
+  },
+];
+
+export const hostingPlans: PricingTier[] = [
+  {
+    name: "Hosting Basic",
+    price: "CHF 29",
+    cadence: "pro Monat",
+    description: "Zuverlässiges Hosting für Websites mit Standard-Anforderungen.",
+    features: [
+      "Server-Standort Schweiz",
+      "Tägliche Backups",
+      "SSL & Firewall",
+      "99.9% Uptime",
+      "E-Mail-Support",
+    ],
+    cta: "Auswählen",
+  },
+  {
+    name: "Hosting Pro",
+    price: "CHF 79",
+    cadence: "pro Monat",
+    description: "Für anspruchsvolle Websites und Shops mit höherem Traffic.",
+    highlight: true,
+    features: [
+      "Alles aus Basic",
+      "99.98% Uptime-SLA",
+      "Monitoring rund um die Uhr",
+      "Staging-Umgebung",
+      "Priority-Support",
+    ],
+    cta: "Auswählen",
+  },
+  {
+    name: "Hosting Managed",
+    price: "auf Anfrage",
+    cadence: "individuell",
+    description: "Vollständig betreute Infrastruktur für unternehmenskritische Systeme.",
+    features: [
+      "Dedizierte Ressourcen",
+      "Individuelle SLA",
+      "Lastverteilung & Skalierung",
+      "Sicherheits-Audits",
+      "Persönlicher Ansprechpartner",
+    ],
+    cta: "Anfragen",
+  },
+];
+
+export const faq: { q: string; a: string }[] = [
+  {
+    q: "Wie lange dauert ein typisches Projekt?",
+    a: "Eine Starter-Website ist in der Regel in 3–4 Wochen live. Umfangreichere Business- und Enterprise-Projekte dauern je nach Umfang 6–12 Wochen.",
+  },
+  {
+    q: "Wo werden meine Daten gehostet?",
+    a: "Ausschliesslich auf Servern in der Schweiz. Damit erfüllen wir die Anforderungen des revidierten Datenschutzgesetzes (revDSG) vollständig.",
+  },
+  {
+    q: "Kann ich Inhalte selbst pflegen?",
+    a: "Ja. Alle unsere Websites werden mit einem benutzerfreundlichen CMS ausgeliefert, mit dem Sie Texte und Bilder selbst aktualisieren können – ganz ohne technisches Wissen.",
+  },
+  {
+    q: "Was kosten die KI-Services?",
+    a: "Das hängt vom Use-Case ab. Wir starten immer mit einer kostenlosen Analyse und einem klaren Festpreis-Angebot, bevor wir loslegen.",
+  },
+  {
+    q: "Bieten Sie auch laufende Betreuung an?",
+    a: "Ja. Mit unseren Hosting- und Care-Paketen übernehmen wir Wartung, Updates, Sicherheit und kontinuierliche Optimierung.",
+  },
+];
