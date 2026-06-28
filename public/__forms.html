@@ -1,0 +1,24 @@
+<!--
+  Statisches Formular ausschliesslich zur Erkennung durch Netlify Forms.
+  Netlify scannt beim Build die HTML-Dateien im Output und registriert dieses
+  Formular. Das echte (React-)Formular sendet per fetch an "/" mit form-name=contact.
+  Doku: https://docs.netlify.com/manage/forms/setup/#javascript-forms
+-->
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify Forms</title>
+  </head>
+  <body>
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <input type="text" name="service" />
+      <input type="text" name="budget" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
+  </body>
+</html>

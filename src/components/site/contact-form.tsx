@@ -14,6 +14,13 @@ const services = [
 
 const budgets = ["< 5'000", "5'000 – 15'000", "15'000 – 50'000", "> 50'000"];
 
+// Netlify Forms erwartet URL-codierte Daten inkl. form-name.
+function encode(data: Record<string, string>) {
+  return Object.keys(data)
+    .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(data[k]))
+    .join("&");
+}
+
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string>("");
@@ -27,23 +34,25 @@ export function ContactForm() {
 
     const form = e.currentTarget;
     const fd = new FormData(form);
-    const payload = {
-      name: fd.get("name"),
-      email: fd.get("email"),
-      company: fd.get("company"),
+    const payload: Record<string, string> = {
+      "form-name": "contact",
+      name: String(fd.get("name") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      company: String(fd.get("company") ?? ""),
       service,
       budget,
-      message: fd.get("message"),
+      message: String(fd.get("message") ?? ""),
+      "bot-field": String(fd.get("bot-field") ?? ""),
     };
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(payload),
       });
-      const json = await res.json();
-      if (!res.ok || !json.ok) throw new Error(json.error || "Fehler");
+      // Netlify antwortet mit 200; lokal (ohne Netlify) ebenfalls 200.
+      if (!res.ok) throw new Error("Senden fehlgeschlagen.");
       setStatus("success");
       form.reset();
     } catch (err) {
@@ -85,9 +94,21 @@ export function ContactForm() {
 
   return (
     <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
       onSubmit={onSubmit}
       className="rounded-3xl border border-border bg-surface p-7 md:p-9"
     >
+      {/* Netlify Forms: verstecktes Form-Name- und Honeypot-Feld */}
+      <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>
+          Nicht ausfüllen: <input name="bot-field" />
+        </label>
+      </p>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className="label mb-2 block !text-foreground/70">Name *</label>
