@@ -1,0 +1,42 @@
+{
+  "values": [
+    {
+      "title": "Präzision",
+      "description": "Schweizer Genauigkeit in jedem Detail – vom Pixel bis zur Server-Konfiguration."
+    },
+    {
+      "title": "Transparenz",
+      "description": "Klare Kommunikation, faire Preise und keine versteckten Kosten. Sie wissen immer, woran Sie sind."
+    },
+    {
+      "title": "Verlässlichkeit",
+      "description": "Wir halten, was wir versprechen. Termine, Qualität und Verfügbarkeit – darauf können Sie zählen."
+    },
+    {
+      "title": "Innovation",
+      "description": "Wir setzen auf moderne Technologie und KI, um Ihnen einen echten Vorsprung zu verschaffen."
+    }
+  ],
+  "timeline": [
+    {
+      "year": "2017",
+      "title": "Gründung",
+      "description": "Swiss Sync startet als kleines Webdesign-Studio in Zürich."
+    },
+    {
+      "year": "2020",
+      "title": "Eigenes Hosting",
+      "description": "Aufbau einer eigenen Hosting-Infrastruktur mit Servern in der Schweiz."
+    },
+    {
+      "year": "2023",
+      "title": "KI-Division",
+      "description": "Wir erweitern unser Angebot um massgeschneiderte KI-Services."
+    },
+    {
+      "year": "2025",
+      "title": "120+ Projekte",
+      "description": "Über 120 erfolgreiche Projekte für Schweizer Unternehmen umgesetzt."
+    }
+  ]
+}

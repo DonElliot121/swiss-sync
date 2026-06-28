@@ -1,0 +1,237 @@
+# ----------------------------------------------------------------------------
+# Decap CMS – Konfiguration für Swiss Sync
+#
+# PRODUKTION (Netlify): nutzt das Git-Gateway (committet Änderungen ins Repo,
+#   Netlify rebuildet automatisch). Voraussetzung: Identity + Git Gateway in
+#   Netlify aktiviert. Alternative (GitHub-Backend) siehe docs/CMS.md.
+#
+# LOKAL: `local_backend: true` erlaubt sofortiges Editieren ohne Login.
+#   Dazu in einem zweiten Terminal `npx decap-server` starten und `npm run dev`
+#   laufen lassen, dann http://localhost:3000/admin/ öffnen.
+# ----------------------------------------------------------------------------
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Lokales Editieren während der Entwicklung (npx decap-server).
+local_backend: true
+
+# Medien (Bild-Uploads)
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+locale: "de"
+
+collections:
+  # --------------------------------------------------------------------------
+  # Einstellungen (einzelne Dateien)
+  # --------------------------------------------------------------------------
+  - name: settings
+    label: "Einstellungen"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: site
+        label: "Website & Kontakt"
+        file: "content/settings/site.json"
+        fields:
+          - { name: name, label: "Firmenname", widget: string }
+          - { name: legalName, label: "Rechtlicher Name", widget: string }
+          - { name: domain, label: "Domain", widget: string }
+          - { name: tagline, label: "Claim / Slogan", widget: string }
+          - { name: description, label: "Beschreibung (SEO)", widget: text }
+          - { name: email, label: "E-Mail", widget: string }
+          - { name: phone, label: "Telefon", widget: string }
+          - name: address
+            label: "Adresse"
+            widget: object
+            fields:
+              - { name: street, label: "Strasse", widget: string }
+              - { name: zip, label: "PLZ", widget: string }
+              - { name: city, label: "Ort", widget: string }
+              - { name: country, label: "Land", widget: string }
+          - name: social
+            label: "Social Media"
+            widget: list
+            fields:
+              - { name: label, label: "Name", widget: string }
+              - { name: href, label: "Link", widget: string }
+          - name: nav
+            label: "Navigation"
+            widget: list
+            fields:
+              - { name: label, label: "Bezeichnung", widget: string }
+              - { name: href, label: "Pfad", widget: string }
+          - name: stats
+            label: "Kennzahlen"
+            widget: list
+            fields:
+              - { name: value, label: "Wert", widget: string }
+              - { name: label, label: "Beschriftung", widget: string }
+
+      - name: process
+        label: "Vorgehen (Prozess-Schritte)"
+        file: "content/settings/process.json"
+        fields:
+          - name: steps
+            label: "Schritte"
+            widget: list
+            fields:
+              - { name: index, label: "Nummer", widget: string }
+              - { name: title, label: "Titel", widget: string }
+              - { name: description, label: "Beschreibung", widget: text }
+
+      - name: testimonials
+        label: "Kundenstimmen"
+        file: "content/settings/testimonials.json"
+        fields:
+          - name: items
+            label: "Stimmen"
+            widget: list
+            fields:
+              - { name: quote, label: "Zitat", widget: text }
+              - { name: author, label: "Name", widget: string }
+              - { name: role, label: "Funktion", widget: string }
+              - { name: company, label: "Unternehmen", widget: string }
+
+      - name: about
+        label: "Über uns (Werte & Werdegang)"
+        file: "content/settings/about.json"
+        fields:
+          - name: values
+            label: "Werte"
+            widget: list
+            fields:
+              - { name: title, label: "Titel", widget: string }
+              - { name: description, label: "Beschreibung", widget: text }
+          - name: timeline
+            label: "Werdegang"
+            widget: list
+            fields:
+              - { name: year, label: "Jahr", widget: string }
+              - { name: title, label: "Titel", widget: string }
+              - { name: description, label: "Beschreibung", widget: text }
+
+      - name: pricing
+        label: "Preise & FAQ"
+        file: "content/settings/pricing.json"
+        fields:
+          - name: tiers
+            label: "Web-Pakete"
+            widget: list
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: price, label: "Preis", widget: string }
+              - { name: cadence, label: "Abrechnung", widget: string }
+              - { name: description, label: "Beschreibung", widget: text }
+              - { name: highlight, label: "Hervorheben?", widget: boolean, default: false }
+              - { name: features, label: "Leistungen", widget: list, field: { name: feature, label: "Leistung", widget: string } }
+              - { name: cta, label: "Button-Text", widget: string }
+          - name: hostingPlans
+            label: "Hosting-Pläne"
+            widget: list
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: price, label: "Preis", widget: string }
+              - { name: cadence, label: "Abrechnung", widget: string }
+              - { name: description, label: "Beschreibung", widget: text }
+              - { name: highlight, label: "Hervorheben?", widget: boolean, default: false }
+              - { name: features, label: "Leistungen", widget: list, field: { name: feature, label: "Leistung", widget: string } }
+              - { name: cta, label: "Button-Text", widget: string }
+          - name: faq
+            label: "Häufige Fragen"
+            widget: list
+            fields:
+              - { name: q, label: "Frage", widget: string }
+              - { name: a, label: "Antwort", widget: text }
+
+  # --------------------------------------------------------------------------
+  # Leistungen
+  # --------------------------------------------------------------------------
+  - name: services
+    label: "Leistungen"
+    label_singular: "Leistung"
+    folder: "content/services"
+    extension: json
+    format: json
+    identifier_field: title
+    slug: "{{fields.index}}-{{fields.slug}}"
+    create: true
+    fields:
+      - { name: index, label: "Nummer (z.B. 01)", widget: string }
+      - { name: slug, label: "URL-Kürzel", widget: string, hint: "z.B. webdesign – ergibt /leistungen/webdesign" }
+      - { name: title, label: "Titel", widget: string }
+      - { name: tagline, label: "Untertitel", widget: string }
+      - { name: description, label: "Beschreibung", widget: text }
+      - { name: features, label: "Merkmale", widget: list, field: { name: feature, label: "Merkmal", widget: string } }
+      - { name: deliverables, label: "Ablauf / Leistungen", widget: list, field: { name: item, label: "Schritt", widget: string } }
+
+  # --------------------------------------------------------------------------
+  # Referenzen / Projekte
+  # --------------------------------------------------------------------------
+  - name: projects
+    label: "Referenzen"
+    label_singular: "Projekt"
+    folder: "content/projects"
+    extension: json
+    format: json
+    identifier_field: client
+    slug: "{{fields.year}}-{{fields.slug}}"
+    create: true
+    fields:
+      - { name: slug, label: "URL-Kürzel", widget: string }
+      - { name: client, label: "Kunde", widget: string }
+      - { name: category, label: "Kategorie", widget: string }
+      - { name: year, label: "Jahr", widget: string }
+      - { name: summary, label: "Beschreibung", widget: text }
+      - { name: tags, label: "Tags", widget: list, field: { name: tag, label: "Tag", widget: string } }
+      - name: metrics
+        label: "Kennzahlen"
+        widget: list
+        fields:
+          - { name: value, label: "Wert", widget: string }
+          - { name: label, label: "Beschriftung", widget: string }
+      - { name: accent, label: "Akzentfarbe", widget: color, default: "#e10600" }
+
+  # --------------------------------------------------------------------------
+  # Team
+  # --------------------------------------------------------------------------
+  - name: team
+    label: "Team"
+    label_singular: "Teammitglied"
+    folder: "content/team"
+    extension: json
+    format: json
+    identifier_field: name
+    slug: "{{fields.name}}"
+    create: true
+    fields:
+      - { name: name, label: "Name", widget: string }
+      - { name: role, label: "Funktion", widget: string }
+      - { name: initials, label: "Initialen", widget: string, hint: "z.B. LF" }
+      - { name: bio, label: "Kurzbeschreibung", widget: text }
+
+  # --------------------------------------------------------------------------
+  # Insights / Blog
+  # --------------------------------------------------------------------------
+  - name: posts
+    label: "Insights (Blog)"
+    label_singular: "Artikel"
+    folder: "content/posts"
+    extension: json
+    format: json
+    identifier_field: title
+    slug: "{{fields.slug}}"
+    create: true
+    fields:
+      - { name: slug, label: "URL-Kürzel", widget: string }
+      - { name: title, label: "Titel", widget: string }
+      - { name: excerpt, label: "Teaser", widget: text }
+      - { name: category, label: "Kategorie", widget: string }
+      - { name: date, label: "Datum", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { name: readingTime, label: "Lesedauer", widget: string, hint: "z.B. 5 Min." }
+      - { name: author, label: "Autor:in", widget: string }
+      - { name: coverImage, label: "Titelbild", widget: image, required: false }
+      - { name: body, label: "Inhalt", widget: text, hint: "Absätze durch Leerzeile trennen." }

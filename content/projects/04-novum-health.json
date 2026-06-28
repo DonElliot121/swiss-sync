@@ -1,0 +1,13 @@
+{
+  "slug": "novum-health",
+  "client": "Novum Health",
+  "category": "KI-Assistent",
+  "year": "2024",
+  "summary": "Ein DSG-konformer KI-Assistent für Patientenanfragen, der das Support-Team spürbar entlastet.",
+  "tags": ["KI-Chatbot", "RAG", "Datenschutz"],
+  "metrics": [
+    { "value": "−54%", "label": "Support-Tickets" },
+    { "value": "24/7", "label": "Verfügbarkeit" }
+  ],
+  "accent": "#9333ea"
+}

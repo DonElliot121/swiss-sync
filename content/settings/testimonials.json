@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "quote": "Swiss Sync hat unsere Plattform nicht einfach umgesetzt, sondern verstanden. Das Ergebnis übertrifft alles, was wir erwartet haben.",
+      "author": "Markus Brunner",
+      "role": "CEO",
+      "company": "Alpine Logistics"
+    },
+    {
+      "quote": "Präzise, zuverlässig und immer einen Schritt voraus. Genau das, was man von einem Schweizer Partner erwartet.",
+      "author": "Sandra Keller",
+      "role": "Head of Marketing",
+      "company": "Helvetia Finance"
+    },
+    {
+      "quote": "Die KI-Integration hat unser Support-Team transformiert. Professionell von der ersten bis zur letzten Minute.",
+      "author": "Dr. Thomas Wyss",
+      "role": "COO",
+      "company": "Novum Health"
+    }
+  ]
+}

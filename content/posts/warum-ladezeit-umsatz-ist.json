@@ -1,0 +1,11 @@
+{
+  "slug": "warum-ladezeit-umsatz-ist",
+  "title": "Warum Ladezeit bares Geld ist",
+  "excerpt": "Jede Sekunde Wartezeit kostet Conversion. Ein praktischer Blick darauf, wie Performance den Umsatz beeinflusst.",
+  "category": "Performance",
+  "date": "2026-04-03",
+  "readingTime": "4 Min.",
+  "author": "Marco Steiner",
+  "coverImage": "",
+  "body": "Studien zeigen es immer wieder: Bereits eine Sekunde zusätzliche Ladezeit kann die Conversion-Rate um zweistellige Prozentwerte senken. Geschwindigkeit ist kein technisches Detail – sie ist ein Geschäftsfaktor.\n\nModerne Frameworks wie Next.js erlauben es, Inhalte serverseitig vorzurendern und blitzschnell auszuliefern. Kombiniert mit optimierten Bildern und Schweizer Hosting entsteht ein Erlebnis, das sich messbar auszahlt.\n\nBei einem unserer Projekte führte eine Reduktion der Ladezeit um 38% zu einer Steigerung der Conversion um über 60%. Performance ist Wachstum."
+}

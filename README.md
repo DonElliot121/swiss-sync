@@ -38,25 +38,36 @@ src/
 │  ├─ sections/               # Hero, Testimonials
 │  ├─ ui/                     # Container, Button, Reveal, SectionHeading, Marquee
 │  ├─ theme-provider.tsx · theme-toggle.tsx
-├─ content/                   # ⇦ ALLE Texte & Daten (CMS-Anbindung Phase 2)
-│  ├─ site.ts services.ts work.ts pricing.ts team.ts posts.ts
+├─ content/                   # Loader (lesen aus /content) + Typen
 │  └─ types.ts
-└─ lib/                       # cn(), formatDate()
+└─ lib/                       # cn(), formatDate(), content-Loader (fs)
+
+content/                      # ⇦ ALLE Inhalte (vom CMS verwaltet)
+├─ settings/                  # site, pricing, about, process, testimonials
+├─ services/ projects/ team/ posts/
+public/
+├─ admin/                     # Decap CMS (index.html + config.yml)
+└─ uploads/                   # Bild-Uploads
 ```
 
-## Inhalte pflegen (heute)
+## Inhalte pflegen
 
-Alle Texte, Kennzahlen, Projekte, Preise und Blog-Artikel liegen in `src/content/*.ts`.
-Anpassungen dort wirken sofort auf der ganzen Website. Platzhalter sind u. a.:
-Firmenadresse/Telefon (`site.ts`), UID (`impressum`), Social-Links.
+Inhalte liegen als JSON in `content/` und werden über das CMS unter **`/admin`**
+bearbeitet (kein Code nötig). Details & Login-Einrichtung: siehe [docs/CMS.md](docs/CMS.md).
+
+Lokal sofort testen: `npm run dev` **und** in einem zweiten Terminal `npx decap-server`,
+dann <http://localhost:3000/admin> öffnen.
+
+Platzhalter zum Ersetzen: Firmenadresse/Telefon (`content/settings/site.json`),
+UID (`src/app/impressum`), Social-Links, fiktive Referenzen.
 
 ## Roadmap
 
 - **Phase 1 — Website** ✅ Design, 7 Seiten, Dark Mode, Animationen, SEO-Grundlagen.
-- **Phase 2 — CMS** ⏳ Eigenes `/admin`-Panel zum Editieren von Texten & Bildern
-  (file-/git-basiert, ohne Datenbank) – greift direkt auf den `content/`-Layer zu.
-- **Phase 3 — Go-Live** ⏳ Kontaktformular an E-Mail/CRM anbinden, Domain & Hosting,
-  Bilder/OG-Images, Analytics.
+- **Phase 2 — CMS** ✅ Decap CMS unter `/admin`, Inhalte als JSON in `content/`,
+  Bild-Uploads, Netlify-konform (git-basiert). Login-Setup: [docs/CMS.md](docs/CMS.md).
+- **Phase 3 — Go-Live** ⏳ Repo zu GitHub pushen → Netlify verbinden, CMS-Login
+  einrichten, Kontaktformular an E-Mail anbinden, echte Bilder & Referenzen, Analytics.
 
 ## Hinweise
 

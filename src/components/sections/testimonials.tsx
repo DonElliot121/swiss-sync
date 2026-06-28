@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { testimonials } from "@/content/work";
+import { testimonials } from "@/content/testimonials";
 
 export function Testimonials() {
   const [i, setI] = useState(0);

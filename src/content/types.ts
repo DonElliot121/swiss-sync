@@ -64,7 +64,8 @@ export type Post = {
   date: string; // ISO
   readingTime: string;
   author: string;
-  body: string[]; // Absätze (Markdown-light)
+  coverImage?: string; // optionaler Pfad, z.B. /uploads/foo.jpg
+  body: string; // Absätze durch Leerzeilen getrennt
 };
 
 export type TeamMember = {

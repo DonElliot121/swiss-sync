@@ -81,12 +81,26 @@ export default async function PostPage({
         {/* Body */}
         <section className="py-16 md:py-24">
           <Container className="max-w-3xl">
+            {post.coverImage && (
+              <Reveal>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={post.coverImage}
+                  alt={post.title}
+                  className="mb-12 w-full rounded-2xl border border-border object-cover"
+                />
+              </Reveal>
+            )}
             <div className="space-y-6 text-lg leading-relaxed text-foreground/90">
-              {post.body.map((para, i) => (
-                <Reveal key={i} delay={i * 0.03}>
-                  <p className="text-pretty">{para}</p>
-                </Reveal>
-              ))}
+              {post.body
+                .split(/\n\n+/)
+                .map((para) => para.trim())
+                .filter(Boolean)
+                .map((para, i) => (
+                  <Reveal key={i} delay={i * 0.03}>
+                    <p className="text-pretty">{para}</p>
+                  </Reveal>
+                ))}
             </div>
           </Container>
         </section>

@@ -1,0 +1,13 @@
+{
+  "slug": "alpine-logistics",
+  "client": "Alpine Logistics",
+  "category": "Webplattform & KI",
+  "year": "2025",
+  "summary": "Eine Logistik-Plattform mit Echtzeit-Tracking und KI-gestützter Routenoptimierung. Vollständig neu gedacht und entwickelt.",
+  "tags": ["Next.js", "KI-Integration", "Dashboard"],
+  "metrics": [
+    { "value": "−38%", "label": "Ladezeit" },
+    { "value": "+62%", "label": "Conversion" }
+  ],
+  "accent": "#e10600"
+}

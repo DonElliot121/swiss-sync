@@ -1,0 +1,19 @@
+{
+  "slug": "ki-services",
+  "index": "03",
+  "title": "KI-Services",
+  "tagline": "Intelligente Automatisierung, die wirkt.",
+  "description": "Wir integrieren KI dort, wo sie echten Mehrwert schafft: Chatbots, Content-Automatisierung, intelligente Suche und massgeschneiderte Workflows – datenschutzkonform und auf Ihr Unternehmen zugeschnitten.",
+  "features": [
+    "KI-Chatbots & Assistenten",
+    "Content- & Prozess-Automation",
+    "Intelligente Suche & RAG",
+    "Schweizer Datenschutz (revDSG)"
+  ],
+  "deliverables": [
+    "Use-Case-Analyse",
+    "Prototyp & Integration",
+    "Anbindung an Ihre Systeme",
+    "Training & Optimierung"
+  ]
+}

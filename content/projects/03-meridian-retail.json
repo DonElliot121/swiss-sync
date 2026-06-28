@@ -1,0 +1,13 @@
+{
+  "slug": "meridian-retail",
+  "client": "Meridian Retail",
+  "category": "Webshop & Hosting",
+  "year": "2024",
+  "summary": "Ein skalierbarer B2B-Webshop mit Schweizer Hosting und automatisierter Bestellabwicklung für über 2'000 Artikel.",
+  "tags": ["E-Commerce", "Hosting", "Automation"],
+  "metrics": [
+    { "value": "99.99%", "label": "Uptime" },
+    { "value": "2'000+", "label": "Artikel" }
+  ],
+  "accent": "#16a34a"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "helvetia-finance",
+  "client": "Helvetia Finance",
+  "category": "Corporate Website",
+  "year": "2025",
+  "summary": "Ein vertrauenswürdiger digitaler Auftritt für einen Finanzdienstleister – seriös, schnell und vollständig barrierefrei.",
+  "tags": ["Webdesign", "CMS", "SEO"],
+  "metrics": [
+    { "value": "100", "label": "Lighthouse-Score" },
+    { "value": "+45%", "label": "Organischer Traffic" }
+  ],
+  "accent": "#2563eb"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "webdesign",
+  "index": "01",
+  "title": "Webdesign & Entwicklung",
+  "tagline": "Massgeschneiderte Websites & Webshops.",
+  "description": "Wir gestalten und entwickeln Websites, die nicht nur gut aussehen, sondern messbar performen. Von der Strategie über das Design bis zur technischen Umsetzung – alles aus einer Hand, präzise umgesetzt.",
+  "features": [
+    "Individuelles UI/UX-Design",
+    "Performance- & SEO-optimiert",
+    "Barrierefrei & responsiv",
+    "Headless & CMS-gestützt"
+  ],
+  "deliverables": [
+    "Discovery & Konzept",
+    "Design-System & Prototyp",
+    "Frontend- & Backend-Entwicklung",
+    "Launch & Schulung"
+  ]
+}

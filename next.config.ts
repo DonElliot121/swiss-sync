@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // Sauberer Zugriff auf das CMS unter /admin (liegt als statische Datei in public/admin).
+  async rewrites() {
+    return [{ source: "/admin", destination: "/admin/index.html" }];
+  },
 };
 
 export default nextConfig;

@@ -1,36 +1,5 @@
 import type { SiteConfig } from "./types";
+// Statischer JSON-Import: client-sicher (kein fs), wird zur Build-Zeit inlined.
+import data from "../../content/settings/site.json";
 
-export const site: SiteConfig = {
-  name: "Swiss Sync",
-  legalName: "Swiss Sync GmbH",
-  domain: "swisssync.ch",
-  tagline: "Digitale Präzision aus der Schweiz.",
-  description:
-    "Swiss Sync entwickelt professionelle Websites, betreibt zuverlässiges Hosting und integriert KI-Services für Schweizer Unternehmen.",
-  email: "hello@swisssync.ch",
-  phone: "+41 44 000 00 00",
-  address: {
-    street: "Bahnhofstrasse 1",
-    zip: "8001",
-    city: "Zürich",
-    country: "Schweiz",
-  },
-  social: [
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "GitHub", href: "https://github.com" },
-    { label: "Instagram", href: "https://instagram.com" },
-  ],
-  nav: [
-    { label: "Leistungen", href: "/leistungen" },
-    { label: "Referenzen", href: "/referenzen" },
-    { label: "Über uns", href: "/ueber-uns" },
-    { label: "Preise", href: "/preise" },
-    { label: "Insights", href: "/insights" },
-  ],
-  stats: [
-    { value: "120+", label: "Projekte umgesetzt" },
-    { value: "99.98%", label: "Hosting-Verfügbarkeit" },
-    { value: "8 Jahre", label: "Erfahrung" },
-    { value: "100%", label: "Server in der Schweiz" },
-  ],
-};
+export const site = data as SiteConfig;
