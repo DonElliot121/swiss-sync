@@ -28,11 +28,13 @@ den DNS-Anweisungen folgen (A-Record/Nameserver). SSL-Zertifikat kommt automatis
 ## 4. Kontaktformular-Benachrichtigungen
 
 Das Formular nutzt **Netlify Forms** (bereits eingebaut, kein API-Key nötig).
-Nach dem ersten Deploy:
 
-1. Netlify → **Forms** → das Formular `contact` erscheint (nach erster echter Absendung)
-2. **Form notifications → Add notification → Email notification**
-3. Deine E-Mail eintragen → ab jetzt landet jede Anfrage in deinem Postfach.
+1. **Wichtig (einmalig):** Netlify → Site → **Forms → Enable form detection**
+   aktivieren, dann einen **Redeploy** auslösen (Deploys → Trigger deploy).
+   Ohne diesen Schalter verarbeitet Netlify keine Formulare.
+2. Danach erscheint unter **Forms** das Formular `contact`.
+3. **Form notifications → Add notification → Email notification** →
+   deine E-Mail eintragen → jede Anfrage landet in deinem Postfach.
 
 > Spamschutz (Honeypot) ist aktiv. Optional: reCAPTCHA in Netlify zuschaltbar.
 

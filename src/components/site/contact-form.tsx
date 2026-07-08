@@ -46,12 +46,13 @@ export function ContactForm() {
     };
 
     try {
-      const res = await fetch("/", {
+      // POST an die statische Datei: bei Next.js auf Netlify wird nur so der
+      // Forms-Handler (CDN) getroffen statt der Next-Server-Function.
+      const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode(payload),
       });
-      // Netlify antwortet mit 200; lokal (ohne Netlify) ebenfalls 200.
       if (!res.ok) throw new Error("Senden fehlgeschlagen.");
       setStatus("success");
       form.reset();
