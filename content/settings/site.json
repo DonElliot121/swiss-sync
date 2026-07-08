@@ -1,33 +1,69 @@
 {
-  "name": "Swiss Sync",
-  "legalName": "Swiss Sync GmbH",
+  "nav": [
+    {
+      "label": "Leistungen",
+      "href": "/leistungen"
+    },
+    {
+      "label": "Referenzen",
+      "href": "/referenzen"
+    },
+    {
+      "label": "Über uns",
+      "href": "/ueber-uns"
+    },
+    {
+      "label": "Preise",
+      "href": "/preise"
+    },
+    {
+      "label": "Insights",
+      "href": "/insights"
+    }
+  ],
   "domain": "swiss-sync.com",
+  "legalName": "Swiss Sync GmbH",
+  "name": "Swiss Sync",
+  "social": [
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://instagram.com"
+    }
+  ],
+  "phone": "+41 76 327 26 80",
   "tagline": "Digitale Präzision aus der Schweiz.",
-  "description": "Swiss Sync entwickelt professionelle Websites, betreibt zuverlässiges Hosting und integriert KI-Services für Schweizer Unternehmen.",
-  "email": "hello@swiss-sync.com",
-  "phone": "+41 44 000 00 00",
   "address": {
-    "street": "Bahnhofstrasse 1",
-    "zip": "8001",
-    "city": "Zürich",
+    "street": "widenweg 12",
+    "zip": "8630",
+    "city": "Rüti",
     "country": "Schweiz"
   },
-  "social": [
-    { "label": "LinkedIn", "href": "https://linkedin.com" },
-    { "label": "GitHub", "href": "https://github.com" },
-    { "label": "Instagram", "href": "https://instagram.com" }
-  ],
-  "nav": [
-    { "label": "Leistungen", "href": "/leistungen" },
-    { "label": "Referenzen", "href": "/referenzen" },
-    { "label": "Über uns", "href": "/ueber-uns" },
-    { "label": "Preise", "href": "/preise" },
-    { "label": "Insights", "href": "/insights" }
-  ],
+  "email": "hello@swiss-sync.com",
+  "description": "Swiss Sync entwickelt professionelle Websites, betreibt zuverlässiges Hosting und integriert KI-Services für Schweizer Unternehmen.",
   "stats": [
-    { "value": "120+", "label": "Projekte umgesetzt" },
-    { "value": "99.98%", "label": "Hosting-Verfügbarkeit" },
-    { "value": "8 Jahre", "label": "Erfahrung" },
-    { "value": "100%", "label": "Server in der Schweiz" }
+    {
+      "value": "120+",
+      "label": "Projekte umgesetzt"
+    },
+    {
+      "value": "99.98%",
+      "label": "Hosting-Verfügbarkeit"
+    },
+    {
+      "value": "8 Jahre",
+      "label": "Erfahrung"
+    },
+    {
+      "value": "100%",
+      "label": "Server in der Schweiz"
+    }
   ]
 }
