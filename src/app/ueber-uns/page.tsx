@@ -20,7 +20,7 @@ export default function UeberUnsPage() {
           <>
             Schweizer Präzision,
             <br />
-            <span className="text-accent">digital</span> gedacht.
+            <span className="mark-lime">digital</span> gedacht.
           </>
         }
         intro="Wir sind ein Team aus Strateginnen, Designern und Entwicklern mit einer gemeinsamen Überzeugung: gute Technologie ist präzise, verständlich und schafft echten Wert."
@@ -57,44 +57,48 @@ export default function UeberUnsPage() {
         </Container>
       </section>
 
-      {/* Values */}
-      <section className="border-t border-border bg-surface py-24 md:py-32">
-        <Container>
-          <SectionHeading
-            label="Werte"
-            title="Worauf Sie sich verlassen können."
-          />
-          <RevealGroup className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
-            {values.map((v, i) => (
-              <RevealItem
-                key={v.title}
-                className="bg-background p-8 transition-colors hover:bg-surface-2 md:p-10"
-              >
-                <div className="label text-accent">0{i + 1}</div>
-                <h3 className="mt-6 text-xl font-semibold tracking-tight">
-                  {v.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {v.description}
-                </p>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </Container>
+      {/* Values — rounded band */}
+      <section className="px-3 md:px-6">
+        <div className="mx-auto w-full max-w-7xl rounded-[2rem] bg-surface-2 py-20 dark:bg-surface md:py-28">
+          <Container>
+            <SectionHeading
+              label="Werte"
+              title="Worauf Sie sich verlassen können."
+            />
+            <RevealGroup className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {values.map((v, i) => (
+                <RevealItem
+                  key={v.title}
+                  className="rounded-3xl border border-border bg-background p-8 transition-all duration-500 hover:-translate-y-1 hover:border-border-strong"
+                >
+                  <div className="label inline-flex items-center rounded-full bg-accent px-3 py-1 !text-accent-fg">
+                    0{i + 1}
+                  </div>
+                  <h3 className="mt-6 text-xl font-semibold tracking-tight">
+                    {v.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    {v.description}
+                  </p>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </Container>
+        </div>
       </section>
 
       {/* Timeline */}
       <section className="py-24 md:py-32">
         <Container>
           <SectionHeading label="Werdegang" title="Unsere Geschichte." />
-          <div className="mt-16 border-t border-border">
-            <RevealGroup>
+          <div className="mt-16">
+            <RevealGroup className="space-y-3">
               {timeline.map((t) => (
                 <RevealItem
                   key={t.year}
-                  className="grid grid-cols-1 gap-4 border-b border-border py-8 md:grid-cols-12 md:gap-8"
+                  className="grid grid-cols-1 gap-4 rounded-2xl border border-border bg-surface px-6 py-6 md:grid-cols-12 md:items-center md:gap-8 md:px-8"
                 >
-                  <div className="font-mono text-2xl font-semibold text-accent md:col-span-2 md:text-3xl">
+                  <div className="font-mono text-2xl font-semibold text-green-mid dark:text-accent md:col-span-2 md:text-3xl">
                     {t.year}
                   </div>
                   <h3 className="text-xl font-semibold tracking-tight md:col-span-3">
@@ -109,25 +113,27 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Team */}
-      <section className="border-t border-border bg-surface py-24 md:py-32">
+      <section className="border-t border-border py-24 md:py-32">
         <Container>
           <SectionHeading
             label="Team"
             title="Die Menschen hinter Swiss Sync."
           />
-          <RevealGroup className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <RevealGroup className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((m) => (
               <RevealItem
                 key={m.name}
-                className="group rounded-3xl border border-border bg-background p-8 transition-colors hover:border-border-strong"
+                className="group rounded-3xl border border-border bg-surface p-8 transition-all duration-500 hover:-translate-y-1 hover:border-border-strong"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent text-lg font-semibold text-accent-fg">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-deep text-lg font-semibold text-accent">
                   {m.initials}
                 </div>
                 <h3 className="mt-6 text-lg font-semibold tracking-tight">
                   {m.name}
                 </h3>
-                <p className="text-sm text-accent">{m.role}</p>
+                <p className="text-sm font-medium text-green-mid dark:text-accent">
+                  {m.role}
+                </p>
                 <p className="mt-4 text-sm leading-relaxed text-muted">
                   {m.bio}
                 </p>

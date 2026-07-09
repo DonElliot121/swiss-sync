@@ -27,11 +27,11 @@ export function SectionHeading({
         <Reveal>
           <div
             className={cn(
-              "label mb-5 flex items-center gap-3",
+              "label mb-5 flex items-center gap-2.5",
               align === "center" && "justify-center",
             )}
           >
-            <span className="inline-block h-px w-8 bg-accent" />
+            <span className="inline-block h-2 w-2 rounded-full bg-accent ring-1 ring-border" />
             {label}
           </div>
         </Reveal>

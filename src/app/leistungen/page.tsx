@@ -21,51 +21,55 @@ export default function LeistungenPage() {
           <>
             Alles, was Ihr digitales
             <br />
-            Geschäft <span className="text-accent">braucht.</span>
+            Geschäft <span className="mark-lime">braucht.</span>
           </>
         }
         intro="Von der ersten Idee bis zum laufenden Betrieb: Wir verbinden Design, Technologie und KI zu Lösungen, die messbar wirken."
       />
 
-      {/* Services list */}
+      {/* Services */}
       <section className="py-20 md:py-28">
         <Container>
           <ServicesList />
         </Container>
       </section>
 
-      {/* Process */}
-      <section className="border-t border-border bg-surface py-24 md:py-32">
-        <Container>
-          <SectionHeading
-            label="Vorgehen"
-            title="Ein Prozess, auf den Sie sich verlassen können."
-            intro="Strukturiert, transparent und partnerschaftlich – in jeder Phase."
-          />
-          <RevealGroup className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step) => (
-              <RevealItem
-                key={step.index}
-                className="bg-background p-8 transition-colors hover:bg-surface-2 md:p-10"
-              >
-                <div className="label text-accent">{step.index}</div>
-                <h3 className="mt-6 text-xl font-semibold tracking-tight">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {step.description}
-                </p>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </Container>
+      {/* Process — rounded band */}
+      <section className="px-3 md:px-6">
+        <div className="mx-auto w-full max-w-7xl rounded-[2rem] bg-surface-2 py-20 dark:bg-surface md:py-28">
+          <Container>
+            <SectionHeading
+              label="Vorgehen"
+              title="Ein Prozess, auf den Sie sich verlassen können."
+              intro="Strukturiert, transparent und partnerschaftlich – in jeder Phase."
+            />
+            <RevealGroup className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {processSteps.map((step) => (
+                <RevealItem
+                  key={step.index}
+                  className="rounded-3xl border border-border bg-background p-8 transition-all duration-500 hover:-translate-y-1 hover:border-border-strong"
+                >
+                  <div className="label inline-flex items-center rounded-full bg-accent px-3 py-1 !text-accent-fg">
+                    {step.index}
+                  </div>
+                  <h3 className="mt-6 text-xl font-semibold tracking-tight">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    {step.description}
+                  </p>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </Container>
+        </div>
       </section>
 
       {/* Guarantee band */}
       <section className="py-24 md:py-32">
         <Container>
           <Reveal>
-            <div className="grid gap-10 rounded-[2rem] border border-border bg-surface p-10 md:grid-cols-3 md:p-16">
+            <div className="grid gap-10 rounded-[2rem] bg-green-deep p-10 text-green-fg md:grid-cols-3 md:p-16">
               {[
                 {
                   k: "Schweizer Qualität",
@@ -81,13 +85,13 @@ export default function LeistungenPage() {
                 },
               ].map((item) => (
                 <div key={item.k}>
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent">
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-fg">
                     ✓
                   </div>
                   <h3 className="text-lg font-semibold tracking-tight">
                     {item.k}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                  <p className="mt-2 text-sm leading-relaxed text-green-fg/70">
                     {item.v}
                   </p>
                 </div>

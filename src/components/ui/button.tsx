@@ -2,17 +2,19 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-type Variant = "primary" | "outline" | "ghost";
+type Variant = "primary" | "lime" | "outline" | "ghost";
 
 const base =
   "group inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)]";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-accent text-accent-fg px-6 py-3 hover:brightness-110 hover:shadow-[0_8px_30px_-8px_var(--accent)]",
+    "bg-foreground text-background px-6 py-3 hover:scale-[1.02] hover:shadow-[0_12px_32px_-12px_rgba(12,12,12,0.45)]",
+  lime:
+    "bg-accent text-accent-fg px-6 py-3 hover:scale-[1.02] hover:shadow-[0_12px_32px_-10px_var(--accent)]",
   outline:
-    "border border-border-strong text-foreground px-6 py-3 hover:border-foreground hover:bg-foreground hover:text-background",
-  ghost: "text-foreground px-2 py-1 hover:text-accent",
+    "border border-border-strong bg-surface text-foreground px-6 py-3 hover:border-foreground",
+  ghost: "text-foreground px-2 py-1 hover:text-green-mid dark:hover:text-accent",
 };
 
 function Arrow() {

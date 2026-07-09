@@ -7,27 +7,25 @@ import { site } from "@/content/site";
 
 const easing = [0.16, 1, 0.3, 1] as const;
 
-const lines = ["Digitale Exzellenz.", "Schweizer Präzision."];
-
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-28">
-      {/* Grid background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 grid-bg opacity-60" />
-      {/* Accent glow */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]" />
+    <section className="relative overflow-hidden pt-36 pb-16 md:pt-48 md:pb-24">
+      {/* Dot-grid background */}
+      <div className="pointer-events-none absolute inset-0 -z-10 grid-bg" />
+      {/* Soft lime glow */}
+      <div className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[420px] w-[640px] -translate-x-1/2 rounded-full bg-accent/25 blur-[140px] dark:bg-accent/10" />
 
       <Container>
-        {/* Eyebrow */}
+        {/* Eyebrow pill */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: easing }}
-          className="mb-8 inline-flex items-center gap-3 rounded-full border border-border bg-surface/50 px-4 py-1.5 backdrop-blur"
+          className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border bg-surface px-4 py-1.5 shadow-sm"
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-mid opacity-60 dark:bg-accent" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-mid dark:bg-accent" />
           </span>
           <span className="label !text-foreground/70">
             B2B Digitalstudio · Schweiz
@@ -36,29 +34,33 @@ export function Hero() {
 
         {/* Headline with line-by-line clip reveal */}
         <h1
-          className="font-semibold tracking-tight"
+          className="max-w-5xl font-semibold tracking-tight"
           style={{
             fontSize: "var(--text-display)",
-            lineHeight: "var(--text-display--line-height)",
-            letterSpacing: "var(--text-display--letter-spacing)",
+            lineHeight: 1.02,
+            letterSpacing: "-0.03em",
           }}
         >
-          {lines.map((line, i) => (
-            <span key={i} className="block overflow-hidden">
-              <motion.span
-                className="block"
-                initial={{ y: "110%" }}
-                animate={{ y: "0%" }}
-                transition={{ duration: 0.9, ease: easing, delay: 0.15 + i * 0.12 }}
-              >
-                {i === 1 ? (
-                  <span className="text-muted">{line}</span>
-                ) : (
-                  line
-                )}
-              </motion.span>
-            </span>
-          ))}
+          <span className="block overflow-hidden">
+            <motion.span
+              className="block"
+              initial={{ y: "110%" }}
+              animate={{ y: "0%" }}
+              transition={{ duration: 0.9, ease: easing, delay: 0.15 }}
+            >
+              Digitale Exzellenz.
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden pb-2">
+            <motion.span
+              className="block"
+              initial={{ y: "110%" }}
+              animate={{ y: "0%" }}
+              transition={{ duration: 0.9, ease: easing, delay: 0.27 }}
+            >
+              <span className="mark-lime">Schweizer</span> Präzision.
+            </motion.span>
+          </span>
         </h1>
 
         {/* Subline + CTAs */}
@@ -81,33 +83,52 @@ export function Hero() {
           >
             <Link
               href="/kontakt"
-              className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-4 text-base font-medium text-accent-fg transition-all hover:shadow-[0_12px_40px_-10px_var(--accent)]"
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-4 text-base font-medium text-background transition-all hover:scale-[1.02] hover:shadow-[0_16px_40px_-16px_rgba(12,12,12,0.5)]"
             >
               Projekt starten
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
             <Link
               href="/leistungen"
-              className="inline-flex items-center gap-2 rounded-full border border-border-strong px-7 py-4 text-base font-medium transition-colors hover:border-foreground"
+              className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface px-7 py-4 text-base font-medium transition-colors hover:border-foreground"
             >
               Leistungen ansehen
             </Link>
           </motion.div>
         </div>
 
-        {/* Stats row */}
+        {/* Stats row — rounded cards */}
         <motion.dl
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border md:mt-24 md:grid-cols-4"
+          className="mt-16 grid grid-cols-2 gap-3 md:mt-24 md:grid-cols-4 md:gap-4"
         >
-          {site.stats.map((s) => (
-            <div key={s.label} className="bg-background px-6 py-7">
-              <dt className="text-3xl font-semibold tracking-tight md:text-4xl">
+          {site.stats.map((s, i) => (
+            <div
+              key={s.label}
+              className={
+                "rounded-3xl border px-6 py-7 " +
+                (i === 0
+                  ? "border-transparent bg-green-deep text-green-fg"
+                  : "border-border bg-surface")
+              }
+            >
+              <dt
+                className={
+                  "text-3xl font-semibold tracking-tight md:text-4xl " +
+                  (i === 0 ? "text-accent" : "")
+                }
+              >
                 {s.value}
               </dt>
-              <dd className="mt-1 text-sm text-muted">{s.label}</dd>
+              <dd
+                className={
+                  "mt-1 text-sm " + (i === 0 ? "text-green-fg/70" : "text-muted")
+                }
+              >
+                {s.label}
+              </dd>
             </div>
           ))}
         </motion.dl>

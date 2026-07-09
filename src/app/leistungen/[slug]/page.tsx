@@ -41,19 +41,19 @@ export default async function ServiceDetailPage({
     <>
       {/* Header */}
       <section className="relative overflow-hidden border-b border-border pt-36 pb-16 md:pt-48 md:pb-24">
-        <div className="pointer-events-none absolute inset-0 -z-10 grid-bg opacity-50" />
+        <div className="pointer-events-none absolute inset-0 -z-10 grid-bg" />
         <Container>
           <Reveal>
             <Link
               href="/leistungen"
-              className="label mb-8 inline-flex items-center gap-2 transition-colors hover:text-foreground"
+              className="label mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 transition-colors hover:text-foreground"
             >
               ← Alle Leistungen
             </Link>
           </Reveal>
-          <div className="flex items-baseline gap-5">
+          <div className="flex flex-wrap items-center gap-4">
             <Reveal>
-              <span className="font-mono text-2xl text-accent md:text-4xl">
+              <span className="label inline-flex items-center rounded-full bg-accent px-3.5 py-1.5 font-mono !text-accent-fg">
                 {service.index}
               </span>
             </Reveal>
@@ -77,13 +77,13 @@ export default async function ServiceDetailPage({
           <div className="grid gap-16 lg:grid-cols-2">
             <div>
               <h2 className="label mb-8">Das bekommen Sie</h2>
-              <RevealGroup className="space-y-px overflow-hidden rounded-2xl border border-border">
+              <RevealGroup className="space-y-3">
                 {service.features.map((f) => (
                   <RevealItem
                     key={f}
-                    className="flex items-center gap-4 border-b border-border bg-surface px-6 py-5 last:border-b-0"
+                    className="flex items-center gap-4 rounded-2xl border border-border bg-surface px-6 py-5"
                   >
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/10 text-sm text-accent">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-sm text-accent-fg">
                       ✓
                     </span>
                     <span className="font-medium">{f}</span>
@@ -97,7 +97,7 @@ export default async function ServiceDetailPage({
               <RevealGroup className="space-y-6">
                 {service.deliverables.map((d, i) => (
                   <RevealItem key={d} className="flex gap-5">
-                    <span className="font-mono text-sm text-muted-2">
+                    <span className="font-mono text-sm text-green-mid dark:text-accent">
                       0{i + 1}
                     </span>
                     <div className="flex-1 border-b border-border pb-6">
@@ -112,14 +112,14 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* CTA + next service */}
-      <section className="border-t border-border bg-surface py-20 md:py-28">
+      <section className="pb-24 md:pb-32">
         <Container>
-          <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:items-center">
+          <div className="grid gap-6 rounded-[2rem] bg-green-deep p-10 text-green-fg md:grid-cols-[1.4fr_1fr] md:items-center md:p-14">
             <div>
               <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
                 Klingt nach Ihrem Projekt?
               </h2>
-              <p className="mt-3 max-w-md text-muted">
+              <p className="mt-3 max-w-md text-green-fg/70">
                 Lassen Sie uns unverbindlich darüber sprechen.
               </p>
               <Link
@@ -135,9 +135,9 @@ export default async function ServiceDetailPage({
 
             <Link
               href={`/leistungen/${next.slug}`}
-              className="group w-full rounded-3xl border border-border bg-background p-8 transition-colors hover:border-border-strong md:w-80"
+              className="group rounded-3xl border border-green-fg/15 bg-green-mid/40 p-8 transition-colors hover:border-accent/50"
             >
-              <span className="label">Nächste Leistung</span>
+              <span className="label !text-green-fg/50">Nächste Leistung</span>
               <div className="mt-4 flex items-center justify-between">
                 <span className="text-xl font-semibold tracking-tight">
                   {next.title}

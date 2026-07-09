@@ -4,40 +4,59 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ------------------------------------------------------------------ */
-/*  Swiss Sync — Design Tokens                                         */
-/*  Stil: Swiss Tech / Präzision — viel Whitespace, Grid, Swiss-Rot    */
+/*  Swiss Sync — Design Tokens v2                                      */
+/*  Stil: hell & luftig, Creme/Weiss, Tannengrün + Lime-Akzent,        */
+/*  grosszügig gerundete Karten, Mono-Labels (Firmus-inspiriert)       */
 /* ------------------------------------------------------------------ */
 
 :root {
   /* Light (default) */
-  --background: #ffffff;
-  --surface: #fafafa;
-  --surface-2: #f2f2f2;
-  --foreground: #0a0a0a;
-  --muted: #6b6b6b;
-  --muted-2: #9a9a9a;
-  --border: #e6e6e6;
-  --border-strong: #d4d4d4;
-  --accent: #e10600;
-  --accent-fg: #ffffff;
-  --ring: rgba(225, 6, 0, 0.35);
+  --background: #fafaf6;
+  --surface: #ffffff;
+  --surface-2: #f1f0e8;
+  --foreground: #0c0c0c;
+  --muted: #5c5d55;
+  --muted-2: #9b9c92;
+  --border: #e7e6dd;
+  --border-strong: #d5d4c9;
+
+  /* Lime-Akzent (Highlight, Pills, Marker) — dunkler Text darauf */
+  --accent: #ccff33;
+  --accent-fg: #0c0c0c;
+
+  /* Tannengrün (dunkle Sections, Footer, CTA-Bänder) */
+  --green-deep: #003911;
+  --green-mid: #00601b;
+  --green-fg: #f2f7ee;
+
+  --ring: rgba(0, 96, 27, 0.35);
 
   /* Fluid display scale (plain :root so inline var() resolves) */
-  --text-display: clamp(2.75rem, 7vw, 6.5rem);
+  --text-display: clamp(2.75rem, 7vw, 6.25rem);
+
+  /* Radii */
+  --r-card: 1.5rem;   /* 24px */
+  --r-big: 2rem;      /* 32px */
 }
 
 .dark {
-  --background: #080808;
-  --surface: #101010;
-  --surface-2: #161616;
-  --foreground: #ededed;
-  --muted: #a0a0a0;
-  --muted-2: #6a6a6a;
-  --border: #1e1e1e;
-  --border-strong: #2a2a2a;
-  --accent: #ff3b30;
-  --accent-fg: #ffffff;
-  --ring: rgba(255, 59, 48, 0.4);
+  --background: #0b0e0b;
+  --surface: #111511;
+  --surface-2: #171c17;
+  --foreground: #f0f1ea;
+  --muted: #a8aa9e;
+  --muted-2: #6d6f65;
+  --border: #1e241e;
+  --border-strong: #2c332c;
+
+  --accent: #ccff33;
+  --accent-fg: #0c0c0c;
+
+  --green-deep: #05230e;
+  --green-mid: #0b3a1a;
+  --green-fg: #e9f2e4;
+
+  --ring: rgba(204, 255, 51, 0.4);
 }
 
 @theme inline {
@@ -51,9 +70,15 @@
   --color-border-strong: var(--border-strong);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
+  --color-green-deep: var(--green-deep);
+  --color-green-mid: var(--green-mid);
+  --color-green-fg: var(--green-fg);
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, monospace;
+
+  --radius-card: var(--r-card);
+  --radius-big: var(--r-big);
 }
 
 * {
@@ -87,6 +112,7 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: var(--border-strong);
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted-2);
@@ -96,23 +122,31 @@ body {
 /*  Utilities                                                          */
 /* ------------------------------------------------------------------ */
 
-/* Mono eyebrow label, e.g. "01 — Leistungen" */
+/* Mono eyebrow label, e.g. "01 — LEISTUNGEN" */
 .label {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-/* Hairline grid background defining the Swiss look */
+/* Lime marker highlight inside headlines */
+.mark-lime {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-radius: 0.4em;
+  padding: 0.02em 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Subtle dot-grid background for hero/headers */
 .grid-bg {
-  background-image:
-    linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  background-image: radial-gradient(var(--border-strong) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, #000 30%, transparent 100%);
 }
 
 /* Animated underline link */

@@ -82,7 +82,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-8 text-sm font-medium text-accent hover:underline"
+          className="mt-8 text-sm font-medium text-green-mid hover:underline dark:text-accent"
         >
           Weitere Nachricht senden
         </button>
@@ -92,6 +92,12 @@ export function ContactForm() {
 
   const fieldClass =
     "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted-2 focus:border-foreground focus:outline-none";
+
+  const chipClass = (selected: boolean) =>
+    "rounded-full border px-4 py-2 text-sm transition-colors " +
+    (selected
+      ? "border-transparent bg-accent font-medium text-accent-fg"
+      : "border-border text-muted hover:border-foreground hover:text-foreground");
 
   return (
     <form
@@ -143,12 +149,7 @@ export function ContactForm() {
               key={s}
               type="button"
               onClick={() => setService(s)}
-              className={
-                "rounded-full border px-4 py-2 text-sm transition-colors " +
-                (service === s
-                  ? "border-accent bg-accent text-accent-fg"
-                  : "border-border text-muted hover:border-foreground hover:text-foreground")
-              }
+              className={chipClass(service === s)}
             >
               {s}
             </button>
@@ -167,12 +168,7 @@ export function ContactForm() {
               key={b}
               type="button"
               onClick={() => setBudget(b)}
-              className={
-                "rounded-full border px-4 py-2 text-sm transition-colors " +
-                (budget === b
-                  ? "border-accent bg-accent text-accent-fg"
-                  : "border-border text-muted hover:border-foreground hover:text-foreground")
-              }
+              className={chipClass(budget === b)}
             >
               {b}
             </button>
@@ -194,13 +190,13 @@ export function ContactForm() {
       </div>
 
       {status === "error" && (
-        <p className="mt-4 text-sm text-accent">{error}</p>
+        <p className="mt-4 text-sm font-medium text-red-600">{error}</p>
       )}
 
       <button
         type="submit"
         disabled={status === "loading"}
-        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-4 text-base font-medium text-accent-fg transition-all hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-7 py-4 text-base font-medium text-background transition-all hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         {status === "loading" ? "Wird gesendet …" : "Anfrage senden"}
         {status !== "loading" && (

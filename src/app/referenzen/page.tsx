@@ -21,7 +21,7 @@ export default function ReferenzenPage() {
         label="Referenzen"
         title={
           <>
-            Projekte, die <span className="text-accent">Wirkung</span> zeigen.
+            Projekte, die <span className="mark-lime">Wirkung</span> zeigen.
           </>
         }
         intro="Ein Auszug aus unserer Arbeit. Jedes Projekt mit einem klaren Ziel – und messbaren Ergebnissen."
@@ -48,7 +48,7 @@ export default function ReferenzenPage() {
       {/* Projects */}
       <section className="py-20 md:py-28">
         <Container>
-          <RevealGroup className="grid gap-6 md:grid-cols-2">
+          <RevealGroup className="grid gap-4 md:grid-cols-2">
             {projects.map((p) => (
               <RevealItem key={p.slug}>
                 <ProjectCard project={p} />
@@ -59,11 +59,11 @@ export default function ReferenzenPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="border-t border-border bg-surface py-24 md:py-32">
+      <section className="border-t border-border py-24 md:py-32">
         <Container className="max-w-4xl">
           <Reveal>
-            <p className="label mb-10 flex items-center gap-3">
-              <span className="inline-block h-px w-8 bg-accent" />
+            <p className="label mb-10 flex items-center gap-2.5">
+              <span className="inline-block h-2 w-2 rounded-full bg-accent ring-1 ring-border" />
               Kundenstimmen
             </p>
           </Reveal>

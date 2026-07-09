@@ -61,32 +61,36 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Process */}
-      <section className="border-t border-border bg-surface py-24 md:py-32">
-        <Container>
-          <SectionHeading
-            label="02 — Vorgehen"
-            title="Von der Idee zum Ergebnis – in vier Schritten."
-            intro="Ein klarer, transparenter Prozess. Sie wissen jederzeit, woran wir arbeiten und was als Nächstes kommt."
-          />
+      {/* Process — big rounded band */}
+      <section className="px-3 md:px-6">
+        <div className="mx-auto w-full max-w-7xl rounded-[2rem] bg-surface-2 py-20 dark:bg-surface md:py-28">
+          <Container>
+            <SectionHeading
+              label="02 — Vorgehen"
+              title="Von der Idee zum Ergebnis – in vier Schritten."
+              intro="Ein klarer, transparenter Prozess. Sie wissen jederzeit, woran wir arbeiten und was als Nächstes kommt."
+            />
 
-          <RevealGroup className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step) => (
-              <RevealItem
-                key={step.index}
-                className="group relative bg-background p-8 transition-colors hover:bg-surface-2 md:p-10"
-              >
-                <div className="label text-accent">{step.index}</div>
-                <h3 className="mt-6 text-xl font-semibold tracking-tight">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {step.description}
-                </p>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </Container>
+            <RevealGroup className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {processSteps.map((step) => (
+                <RevealItem
+                  key={step.index}
+                  className="group rounded-3xl border border-border bg-background p-8 transition-all duration-500 hover:-translate-y-1 hover:border-border-strong"
+                >
+                  <div className="label inline-flex items-center rounded-full bg-accent px-3 py-1 !text-accent-fg">
+                    {step.index}
+                  </div>
+                  <h3 className="mt-6 text-xl font-semibold tracking-tight">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    {step.description}
+                  </p>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </Container>
+        </div>
       </section>
 
       {/* Featured work */}
@@ -104,7 +108,7 @@ export default function Home() {
             </Reveal>
           </div>
 
-          <RevealGroup className="grid gap-6 md:grid-cols-2">
+          <RevealGroup className="grid gap-4 md:grid-cols-2">
             {projects.slice(0, 4).map((p) => (
               <RevealItem key={p.slug}>
                 <ProjectCard project={p} />
@@ -115,11 +119,11 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="border-t border-border bg-surface py-24 md:py-32">
+      <section className="border-t border-border py-24 md:py-32">
         <Container className="max-w-4xl">
           <Reveal>
-            <p className="label mb-10 flex items-center gap-3">
-              <span className="inline-block h-px w-8 bg-accent" />
+            <p className="label mb-10 flex items-center gap-2.5">
+              <span className="inline-block h-2 w-2 rounded-full bg-accent ring-1 ring-border" />
               04 — Stimmen
             </p>
           </Reveal>
@@ -127,18 +131,19 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Mid CTA */}
-      <section className="py-24 md:py-32">
+      {/* Mid CTA — deep green band */}
+      <section className="pb-24 md:pb-32">
         <Container>
           <Reveal>
-            <div className="relative overflow-hidden rounded-[2rem] border border-border bg-foreground px-8 py-16 text-background md:px-16 md:py-24">
-              <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-accent/30 blur-[100px]" />
+            <div className="relative overflow-hidden rounded-[2rem] bg-green-deep px-8 py-16 text-green-fg md:px-16 md:py-24">
+              <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-accent/25 blur-[110px]" />
               <div className="relative max-w-2xl">
-                <p className="label !text-background/60">Lassen Sie uns sprechen</p>
+                <p className="label !text-green-fg/60">Lassen Sie uns sprechen</p>
                 <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight md:text-5xl">
-                  Ihr nächstes digitales Projekt beginnt mit einem Gespräch.
+                  Ihr nächstes digitales Projekt beginnt mit einem{" "}
+                  <span className="text-accent">Gespräch.</span>
                 </h2>
-                <p className="mt-5 max-w-lg text-background/70">
+                <p className="mt-5 max-w-lg text-green-fg/70">
                   Kostenlos, unverbindlich und auf Augenhöhe. Erzählen Sie uns
                   von Ihrem Vorhaben.
                 </p>

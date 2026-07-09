@@ -21,8 +21,8 @@ export default function KontaktPage() {
           {/* Info */}
           <div>
             <Reveal>
-              <div className="label mb-6 flex items-center gap-3">
-                <span className="inline-block h-px w-8 bg-accent" />
+              <div className="label mb-6 inline-flex items-center gap-2.5 rounded-full border border-border bg-surface px-4 py-1.5">
+                <span className="inline-block h-2 w-2 rounded-full bg-accent ring-1 ring-border" />
                 Kontakt
               </div>
             </Reveal>
@@ -30,7 +30,7 @@ export default function KontaktPage() {
               <h1 className="text-balance text-4xl font-semibold tracking-tight md:text-6xl">
                 Lassen Sie uns
                 <br />
-                <span className="text-accent">sprechen.</span>
+                <span className="mark-lime">sprechen.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.1}>

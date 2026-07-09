@@ -195,7 +195,7 @@ collections:
         fields:
           - { name: value, label: "Wert", widget: string }
           - { name: label, label: "Beschriftung", widget: string }
-      - { name: accent, label: "Akzentfarbe", widget: color, default: "#e10600" }
+      - { name: accent, label: "Akzentfarbe", widget: color, default: "#00601b" }
 
   # --------------------------------------------------------------------------
   # Team

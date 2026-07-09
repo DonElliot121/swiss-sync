@@ -6,18 +6,20 @@ export function ProjectCard({ project }: { project: Project }) {
     <Link
       href={`/referenzen#${project.slug}`}
       id={project.slug}
-      className="group relative flex scroll-mt-28 flex-col overflow-hidden rounded-3xl border border-border bg-surface p-8 transition-all duration-500 hover:border-border-strong hover:shadow-[0_24px_80px_-32px_rgba(0,0,0,0.4)] md:p-10"
+      className="group relative flex scroll-mt-28 flex-col overflow-hidden rounded-3xl border border-border bg-surface p-8 transition-all duration-500 hover:-translate-y-1 hover:border-border-strong hover:shadow-[0_28px_72px_-36px_rgba(12,12,12,0.3)] md:p-10"
     >
       {/* Accent wash on hover */}
       <div
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
-          background: `radial-gradient(120% 80% at 0% 0%, ${project.accent}1a, transparent 60%)`,
+          background: `radial-gradient(120% 80% at 0% 0%, ${project.accent}14, transparent 60%)`,
         }}
       />
 
       <div className="relative flex items-center justify-between">
-        <span className="label">{project.category}</span>
+        <span className="label inline-flex items-center rounded-full bg-surface-2 px-3 py-1 !text-foreground/70">
+          {project.category}
+        </span>
         <span className="label">{project.year}</span>
       </div>
 
@@ -29,9 +31,12 @@ export function ProjectCard({ project }: { project: Project }) {
       </p>
 
       {/* Metrics */}
-      <div className="relative mt-8 flex gap-10">
+      <div className="relative mt-8 flex gap-4">
         {project.metrics.map((m) => (
-          <div key={m.label}>
+          <div
+            key={m.label}
+            className="flex-1 rounded-2xl bg-surface-2 px-4 py-3.5"
+          >
             <div
               className="text-2xl font-semibold tracking-tight"
               style={{ color: project.accent }}
@@ -44,7 +49,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* Tags */}
-      <div className="relative mt-8 flex flex-wrap gap-2">
+      <div className="relative mt-6 flex flex-wrap gap-2">
         {project.tags.map((t) => (
           <span
             key={t}

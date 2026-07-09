@@ -21,7 +21,7 @@ export default function InsightsPage() {
         label="Insights"
         title={
           <>
-            Wissen, das <span className="text-accent">weiterbringt.</span>
+            Wissen, das <span className="mark-lime">weiterbringt.</span>
           </>
         }
         intro="Praxisnahe Einblicke zu Webdesign, Performance, Hosting und KI – ohne Buzzwords."

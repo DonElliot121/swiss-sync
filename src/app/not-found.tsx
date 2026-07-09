@@ -6,7 +6,7 @@ export default function NotFound() {
     <section className="relative flex min-h-[70vh] items-center overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10 grid-bg opacity-40" />
       <Container className="text-center">
-        <p className="font-mono text-7xl font-semibold text-accent md:text-9xl">
+        <p className="font-mono text-7xl font-semibold text-green-deep dark:text-accent md:text-9xl">
           404
         </p>
         <h1 className="mt-6 text-3xl font-semibold tracking-tight md:text-4xl">
